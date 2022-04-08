@@ -32,10 +32,10 @@ this Python class.
 
 
 # Source packages.
+from enum import Enum
 
 
-
-class WeaponType():
+class WeaponType(Enum):
     """Python class to implement an enumeration for the attribute Weapon Type.
 
     This Python class implements an enumeration for the attribute Weapon Type.
@@ -60,6 +60,18 @@ class WeaponType():
       >>> from weapon_type import WeaponType
       >>> obj_WeaponType = WeaponType.Boxer
     """
+    #Funcion para comprobar que weapon type es uno de los 4 tipos que nos dice el enunciado
+    def from_str(str_weapon_type):
+      if str_weapon_type == 'punch':
+          return WeaponType.PUNCH
+      elif str_weapon_type == 'kick':
+          return WeaponType.KICK
+      elif str_weapon_type == 'elbow':
+          return WeaponType.ELBOW
+      elif str_weapon_type == 'headbutt':
+          return WeaponType.HEADBUTT
+      else:
+          raise TypeError(str_weapon_type + " no se corresponde con ningun tipp")
 
 
 

@@ -85,7 +85,7 @@ class Pokemon():
         else:
             raise TypeError("El nombre del pokemon debe ser una cadena de texto")
         
-
+        
 
 
 def main():
