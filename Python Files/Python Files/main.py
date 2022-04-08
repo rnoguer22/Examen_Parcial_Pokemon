@@ -109,12 +109,38 @@ def get_pokemon_in_a_list_of_pokemons(coach_to_ask, list_of_pokemons):
 
     Returns
     -------
-       List List of the Pokemons associaated to the coach that are undefeated.
+       Null .
 
     Example
     -------
        >>> get_pokemon_in_a_list_of_pokemons(1, list_of_pokemons)
     """
+    #Nos aseguramos que la lista de los pokemon sea una lista
+    if isinstance(list_of_pokemons,list):
+
+        for temp_pokemon in list_of_pokemons:
+            if not isinstance(temp_pokemon, Pokemon):
+                raise TypeError("Todos los Pokemon deber ser de un tipo")
+        print("Por favor entrenador " + str(coach_to_ask) + " introduce la ID del Pokemon: " + "\n")
+
+        while True:
+            print("Lista de Pokemons: " + "\n")
+            
+            for i in list_of_pokemons:
+                print(i)
+            
+            string_introduced = input(":~>")
+            try:
+                int_introduced= int(string_introduced)
+            except ValueError:
+                print("Por favor, introduce un ID presente en la lista:")
+            for temp_pokemon in list_of_pokemons:
+                if int_introduced == temp_pokemon.get_id():
+                    return temp_pokemon
+            print("Por favor introduza un numero presente en la lista")
+    #Salta la excepcion ya que no list_pokemons no es una lista
+    else:
+        raise TypeError("list_pokemons should be a list")
 
 
 
