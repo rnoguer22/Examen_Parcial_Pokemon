@@ -69,13 +69,19 @@ class Pokemon():
       >>> obj_Pokemon = Pokemon(1, "Bulbasaur", WeaponType.PUNCH, 100, 7, 10)
     """
     
+    # Variable global para guardar la lista de los ID, tal y como se nos pide en el enunciado
+    __list_ids = []
+
     #Definimos el constructor
     def __init__(self, pokemon_id, pokemon_name, weapon_type, health_points,
                  attack_rating, defense_rating):
 
         #Condional para asegurarnos que el id del pokemon es de tipo int
         if isinstance(pokemon_id, int):
+            #Con este condicional nos aseguramos que los ID no se repitan
+            if pokemon_id not in Pokemon.__list_ids:
                 self._pokemon_id = pokemon_id
+                Pokemon.__list_ids.append(self._pokemon_id)
         else:
             raise ValueError("La id debe ser un numero entero")
         
@@ -112,6 +118,9 @@ class Pokemon():
         else:
             raise TypeError("defense_rating debe ser de tipo int")
 
+    #Dfinimos el destructor de la clase Pokemon
+    def __del__(self):
+        Pokemon.__list_ids.remove(self._pokemon_id)
 
     #Definimos los getters  
     def get_id(self):
