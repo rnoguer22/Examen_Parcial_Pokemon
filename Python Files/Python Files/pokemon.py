@@ -32,7 +32,7 @@ this Python class.
 
 
 # Source packages.
-
+from weapon_type import WeaponType
 
 
 class Pokemon():
@@ -131,6 +131,38 @@ class Pokemon():
 
     def get_defense_rating(self):
         return self._defense_rating
+
+
+    #Definimos los setters
+    def set_pokemon_name(self, pokemon_name_to_be_set):
+        if isinstance(pokemon_name_to_be_set, str):
+            self._pokemon_name = pokemon_name_to_be_set
+        else:
+            raise TypeError("El nombre del pokemon debe sr de tipo string")
+
+    def set_weapon_type(self, weapon_type_to_be_set):
+        if isinstance(weapon_type_to_be_set, WeaponType):
+            self._weapon_type = weapon_type_to_be_set
+        else:
+            raise TypeError("weapon_type_to_be_set debe ser un Weapon Type")
+
+    def set_attack_rating(self, attack_rating_to_be_set):
+        if isinstance(attack_rating_to_be_set, int):
+            if 1 <= attack_rating_to_be_set <= 10:
+                self._attack_rating = attack_rating_to_be_set
+            else:
+                raise ValueError("Los puntos de ataque deben estar entre 0 y 10")
+
+            raise TypeError("attack_rating_to_be_set debe ser de tipo int")
+
+    def set_defense_rating(self, defense_rating_to_be_set):
+        if isinstance(defense_rating_to_be_set, int):
+            if 1 <= defense_rating_to_be_set <= 10:
+                self._defense_rating = defense_rating_to_be_set
+            else:
+                raise ValueError("Los puntos de defensa deben estar entre 0 y 10")
+        else:
+            raise TypeError("defense_rating_to_be_set debe ser de tipo int")
 
 
 def main():
