@@ -31,7 +31,10 @@ This Python method contains the application of the Game.
 
 
 # Source packages.
+import csv
 
+from weapon_type import WeaponType
+from pokemon import Pokemon
 
 
 def get_data_from_user(name_file):
@@ -50,12 +53,40 @@ def get_data_from_user(name_file):
 
     Returns
     -------
-      list_pokemons List of Pokemons obtained from CSV .
+      Null .
 
     Example
     -------
-      >>> list_pokemons = get_data_from_user("file.csv")
+      >>> get_data_from_user("file.csv")
     """
+    set_of_pokemons = []
+
+    #Nos aseguramos que name_file sea de tipo string
+    if not isinstance(name_file, str):
+        raise TypeError("name_file no es una cadena de texto")
+
+    name_file_s = name_file
+
+    try:
+        with open(name_file_s, newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            data_from_file = list(reader)
+
+        for temp_pokemon_csv in data_from_file:
+            coach_pokemon = Pokemon(int(temp_pokemon_csv[0]),
+                                    temp_pokemon_csv[1],
+                                    WeaponType.from_str(temp_pokemon_csv[2]),
+                                    int(temp_pokemon_csv[3]),
+                                    int(temp_pokemon_csv[4]),
+                                    int(temp_pokemon_csv[5]))
+
+            set_of_pokemons.append(coach_pokemon)
+
+    #Excepcion por si nos equivocamos al introducir los pokemons
+    except SyntaxError:
+        print("Oops! Los pokemon fueron introducimos incorrectamente, intentelo de nuevo...")
+
+    return set_of_pokemons
 
 
 
