@@ -35,6 +35,7 @@ this Python class.
 from pokemon import Pokemon
 from weapon_type import WeaponType
 
+import random
 
 class PokemonAir(Pokemon):
     """Python class to implement a basic version of a Pokemon of the game.
@@ -75,6 +76,36 @@ class PokemonAir(Pokemon):
         super().__init__(pokemon_id, pokemon_name, weapon_type, health_points,
                          attack_rating, defense_rating)
 
+    def fight_defense(self, points_of_damage):
+        if not isinstance(points_of_damage, int):
+            raise TypeError("Los puntos de daño deben ser un numero entero")
+
+        print("El pokemon " + self._pokemon_name +
+              " ha recibido un ataque de " +
+              str(points_of_damage) + " puntos de daño.")
+
+        failure_probability = random.randrange(0, 2)
+
+        #Si la probabilidad de fallar es 0, el pokemon recibe el ataque
+        if failure_probability == 0:
+            if points_of_damage > self._defense_rating:
+                self._health_points = (self._health_points -
+                                       (points_of_damage - self._defense_rating))
+                pokemon_was_hit = True
+            else:
+                print("No se ha recibido daño")
+                pokemon_was_hit = False
+                
+        #De otra manera, no se recibe el golpe
+        else:
+            print("No se ha recibido daño")
+            pokemon_was_hit = False
+
+        # Si un Pokemon qued con salud negativa, le damos el valor 0 para dar a entender que se ha derrotado al Pokemon
+        if self._health_points < 1:
+            self._health_points = 0
+
+        return pokemon_was_hit
 
 
 def main():
