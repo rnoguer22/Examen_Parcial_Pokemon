@@ -35,7 +35,7 @@ this Python class.
 from pokemon import Pokemon
 from weapon_type import WeaponType
 
-
+import random
 
 class PokemonElectricity(Pokemon):
     """Python class to implement a basic version of a Pokemon of the game.
@@ -71,11 +71,34 @@ class PokemonElectricity(Pokemon):
       >>> obj_Pokemon = PokemonEarth(1, "Pikachu", WeaponType.PUNCH, 100, 7, 10)
     """
 
+    #Constructor
     def __init__(self, pokemon_id, pokemon_name, weapon_type, health_points,
                  attack_rating, defense_rating):
         #Heredamos del constructor de Pokemon ya que esta clase esta heredada
         super().__init__(pokemon_id, pokemon_name, weapon_type, health_points,
                          attack_rating, defense_rating)
+
+    #Metodo fight attack
+    def fight_attack(self, pokemon_to_attack):
+
+        points_of_damage = self._attack_rating
+
+        print("El pokemon " + self._pokemon_name +
+              " golpea al pokemon " + pokemon_to_attack.get_pokemon_name() +
+              " con " + str(points_of_damage) + " puntos de daño!")
+
+        hit_probability = random.randrange(0, 2)
+
+        #Si hit_probability es 0, se aplica un ataque normal
+        if hit_probability == 0:
+            points_of_damage = self._attack_rating
+        #De otra manera, se aplican las restricciones del enunciado
+        else:
+            points_of_damage = 2 * self._attack_rating
+
+        pokemon_was_hit = pokemon_to_attack.fight_defense(points_of_damage)
+
+        return pokemon_was_hit
 
 
 def main():
