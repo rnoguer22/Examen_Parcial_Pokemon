@@ -73,7 +73,12 @@ class Pokemon():
     def __init__(self, pokemon_id, pokemon_name, weapon_type, health_points,
                  attack_rating, defense_rating):
 
-        
+        #Condional para asegurarnos que el id del pokemon es de tipo int
+        if isinstance(pokemon_id, int):
+                self._pokemon_id = pokemon_id
+        else:
+            raise ValueError("La id debe ser un numero entero")
+
 
 
 def main():
