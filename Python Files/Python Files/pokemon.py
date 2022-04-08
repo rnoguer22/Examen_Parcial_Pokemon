@@ -173,6 +173,9 @@ class Pokemon():
         else:
             raise TypeError("defense_rating_to_be_set debe ser de tipo int")
 
+    #Definimos un metodo para saber si el pokemon esta vivo, es decir, si sus puntos de salud son distintos de 0
+    def is_alive(self):
+        return not bool(self._health_points == 0)
 
 def main():
     """Function main of the module.
