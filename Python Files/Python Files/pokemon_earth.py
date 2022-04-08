@@ -69,7 +69,8 @@ class PokemonEarth(Pokemon):
       >>> from weapon_type import WeaponType
       >>> obj_Pokemon = PokemonEarth(1, "Diglett", WeaponType.PUNCH, 100, 7, 10)
     """
-    
+
+
     #Constructor
     def __init__(self, pokemon_id, pokemon_name, weapon_type, health_points,
                  attack_rating, defense_rating):
@@ -84,6 +85,20 @@ class PokemonEarth(Pokemon):
                 raise ValueError("La defensa debe estar entre 11 y 20")
         else:
             raise TypeError("La defensa debe ser de tipo int")
+
+
+    #Definimos un setter
+    def set_defense_rating(self, defense_rating_to_be_set):
+        #Condional para asegurarnos que la defensa esta entre 11 y 20
+        if isinstance(defense_rating_to_be_set, int):
+            if 11 <= defense_rating_to_be_set <= 20:
+                self._defense_rating = defense_rating_to_be_set
+            else:
+                raise ValueError("La defensa debe estar entre 11 y 20.")
+        else:
+            raise TypeError("La defensa debe ser de tipo int")
+
+
 
 def main():
     """Function main of the module.
