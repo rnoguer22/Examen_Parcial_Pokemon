@@ -113,6 +113,26 @@ class Pokemon():
             raise TypeError("defense_rating debe ser de tipo int")
 
 
+    #Definimos los getters  
+    def get_id(self):
+        return self._pokemon_id
+
+    def get_pokemon_name(self):
+        return self._pokemon_name
+
+    def get_weapon_type(self):
+        return self._weapon_type
+
+    def get_health_points(self):
+        return self._health_points
+
+    def get_attack_rating(self):
+        return self._attack_rating
+
+    def get_defense_rating(self):
+        return self._defense_rating
+
+
 def main():
     """Function main of the module.
 
