@@ -32,10 +32,12 @@ this Python class.
 
 
 # Source packages.
+from pokemon import Pokemon
+from weapon_type import WeaponType
 
 
 
-class PokemonElectricity():
+class PokemonElectricity(Pokemon):
     """Python class to implement a basic version of a Pokemon of the game.
 
     This Python class implements the basic version of a Pokemon of the game.
@@ -69,6 +71,11 @@ class PokemonElectricity():
       >>> obj_Pokemon = PokemonEarth(1, "Pikachu", WeaponType.PUNCH, 100, 7, 10)
     """
 
+    def __init__(self, pokemon_id, pokemon_name, weapon_type, health_points,
+                 attack_rating, defense_rating):
+        #Heredamos del constructor de Pokemon ya que esta clase esta heredada
+        super().__init__(pokemon_id, pokemon_name, weapon_type, health_points,
+                         attack_rating, defense_rating)
 
 
 def main():
