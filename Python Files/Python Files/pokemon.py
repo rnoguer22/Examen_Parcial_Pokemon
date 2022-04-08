@@ -78,6 +78,13 @@ class Pokemon():
                 self._pokemon_id = pokemon_id
         else:
             raise ValueError("La id debe ser un numero entero")
+        
+        #Condional para comprobar que el nombre es una cadena de texto
+        if isinstance(pokemon_name, str):
+            self._pokemon_name = pokemon_name
+        else:
+            raise TypeError("El nombre del pokemon debe ser una cadena de texto")
+        
 
 
 
