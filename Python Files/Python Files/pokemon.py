@@ -102,6 +102,15 @@ class Pokemon():
                 raise ValueError("Los puntos de ataque deben estar entre 0 y 10")
         else:
             raise TypeError("attack_rating debe ser de tipo int")
+        
+        #Condicional para verificar que los puntos de defensa son de tipo int y estan entre 0 y 10
+        if isinstance(defense_rating, int):
+            if 1 <= defense_rating <= 10:
+                self._defense_rating = defense_rating
+            else:
+                raise ValueError("Los puntos de defensa deben estar entre 0 y 10")
+        else:
+            raise TypeError("defense_rating debe ser de tipo int")
 
 
 def main():
