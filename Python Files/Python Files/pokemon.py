@@ -189,6 +189,28 @@ class Pokemon():
 
         return pokemon_was_hit
 
+    #Definimos la funcion fight_defense, para simular el daño que recibe el Pokemon, es decir, la defensa
+    def fight_defense(self, points_of_damage):
+        if not isinstance(points_of_damage, int):
+            raise TypeError("points_of_damage debe ser de tipo int")
+
+        print("El Pokemon " + self._pokemon_name +
+              " ha recibido un ataque de " +
+              str(points_of_damage) + " puntos de daño.")
+
+        if points_of_damage > self._defense_rating:
+            self._health_points = (self._health_points -
+                                   (points_of_damage - self._defense_rating))
+            pokemon_was_hit = True
+        else:
+            print("No se recibio daño.")
+            pokemon_was_hit = False
+
+        # Si un Pokemon qued con salud negativa, le damos el valor 0 para dar a entender que se ha derrotado al Pokemon
+        if self._health_points < 1:
+            self._health_points = 0
+
+        return pokemon_was_hit
 
 def main():
     """Function main of the module.
