@@ -177,6 +177,19 @@ class Pokemon():
     def is_alive(self):
         return not bool(self._health_points == 0)
 
+    #Definimos otro metodo, para simular el ataque de los Pokemon
+    def fight_attack(self, pokemon_to_attack):
+        points_of_damage = self._attack_rating
+
+        print("El Pokemon" + self._pokemon_name +
+              " golpea al Pokemon " + pokemon_to_attack.get_pokemon_name() +
+              " con " + str(points_of_damage) + " puntos de daño!")
+
+        pokemon_was_hit = pokemon_to_attack.fight_defense(points_of_damage)
+
+        return pokemon_was_hit
+
+
 def main():
     """Function main of the module.
 
