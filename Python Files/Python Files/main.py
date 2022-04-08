@@ -160,13 +160,26 @@ def coach_is_undefeated(list_of_pokemons):
 
     Returns
     -------
-       Boolean True if the coach has all her/his Pokemons defeated.
-               False if the coach has any Pokemon that is undefeated.
+       Null .
 
     Example
     -------
        >>> coach_is_undefeated(list_of_pokemons)
     """
+
+    #Nos aseguramos que la lista de pokemons es una lista
+    if isinstance(list_of_pokemons, list):
+        for temp_pokemon in list_of_pokemons:
+            if not isinstance(temp_pokemon, Pokemon):
+                raise TypeError("Todos los pokemon deben ser de un tipo")
+
+    defeated = True
+
+    for temp_pokemon in list_of_pokemons:
+        if temp_pokemon.is_alive():
+            defeated = False
+
+    return not defeated
 
 
 def main():
