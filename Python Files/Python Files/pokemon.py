@@ -93,6 +93,15 @@ class Pokemon():
                 raise ValueError("La salud debe estar entre 0 y 100")
         else:
             raise TypeError("health_points debe ser de tipo int")
+        
+        #Condicional para comprobar que los puntos de ataque son de tipo int y estan entre 0 y 10
+        if isinstance(attack_rating, int):
+            if 1 <= attack_rating <= 10:
+                self._attack_rating = attack_rating
+            else:
+                raise ValueError("Los puntos de ataque deben estar entre 0 y 10")
+        else:
+            raise TypeError("attack_rating debe ser de tipo int")
 
 
 def main():
