@@ -68,9 +68,12 @@ class Pokemon():
       >>> from weapon_type import WeaponType
       >>> obj_Pokemon = Pokemon(1, "Bulbasaur", WeaponType.PUNCH, 100, 7, 10)
     """
+    
+    #Definimos el constructor
+    def __init__(self, pokemon_id, pokemon_name, weapon_type, health_points,
+                 attack_rating, defense_rating):
 
-
-
+        
 
 
 def main():
