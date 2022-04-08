@@ -85,7 +85,14 @@ class Pokemon():
         else:
             raise TypeError("El nombre del pokemon debe ser una cadena de texto")
         
-        
+        #Condional para asegurar que los puntos de salud sean correctos
+        if isinstance(health_points, int):
+            if 1 <= health_points <= 100:
+                self._health_points = health_points
+            else:
+                raise ValueError("La salud debe estar entre 0 y 100")
+        else:
+            raise TypeError("health_points debe ser de tipo int")
 
 
 def main():
