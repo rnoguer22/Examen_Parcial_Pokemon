@@ -85,6 +85,18 @@ class PokemonWater(Pokemon):
                 raise ValueError("El ataque debe ser entre 11 y 20")
         else:
             raise TypeError("El ataque debe ser un numero entero")
+    
+    #Establecemos un setter para attack_rating
+    def set_attack_rating(self, attack_rating_to_be_set):
+        if isinstance(attack_rating_to_be_set, int):
+            if 11 <= attack_rating_to_be_set <= 20:
+                self._attack_rating = attack_rating_to_be_set
+            else:
+                raise ValueError("El ataque debe ser entre 11 y 20")
+        else:
+            raise TypeError("El ataque debe ser un numero entero")
+
+
 
 def main():
     """Function main of the module.
