@@ -32,10 +32,11 @@ this Python class.
 
 
 # Source packages.
+from pokemon import Pokemon
+from weapon_type import WeaponType
 
 
-
-class PokemonEarth():
+class PokemonEarth(Pokemon):
     """Python class to implement a basic version of a Pokemon of the game.
 
     This Python class implements the basic version of a Pokemon of the game.
@@ -68,7 +69,21 @@ class PokemonEarth():
       >>> from weapon_type import WeaponType
       >>> obj_Pokemon = PokemonEarth(1, "Diglett", WeaponType.PUNCH, 100, 7, 10)
     """
-
+    
+    #Constructor
+    def __init__(self, pokemon_id, pokemon_name, weapon_type, health_points,
+                 attack_rating, defense_rating):
+        #Importamos el constructor de Pokemon, ya que PokemonEarth esta heredada de Pokemon
+        super().__init__(pokemon_id, pokemon_name, weapon_type, health_points,
+                         attack_rating, 10)
+        #Nos aseguramos que la defensa este entre 11 y 20, tal y como se especifica en el enunciado
+        if isinstance(defense_rating, int):
+            if 11 <= defense_rating <= 20:
+                self._defense_rating = defense_rating
+            else:
+                raise ValueError("La defensa debe estar entre 11 y 20")
+        else:
+            raise TypeError("La defensa debe ser de tipo int")
 
 def main():
     """Function main of the module.
