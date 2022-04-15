@@ -32,6 +32,7 @@ This Python method contains the application of the Game.
 
 # Source packages.
 import csv
+import copy
 
 from weapon_type import WeaponType
 from pokemon import Pokemon
@@ -222,7 +223,11 @@ def main():
     print("------------------------------------------------------------------")
 
     # Get a copy of the list of pokemons:
+    temp_list_pokemons_from_coach_1 = game_user_1
+    list_pokemons_alive_coach_1 = copy.copy(temp_list_pokemons_from_coach_1)
 
+    temp_list_pokemons_from_coach_2 = game_user_2
+    list_pokemons_alive_coach_2 = copy.copy(temp_list_pokemons_from_coach_2)
 
     # Choose first pokemons
  
