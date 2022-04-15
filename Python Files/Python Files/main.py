@@ -230,7 +230,11 @@ def main():
     list_pokemons_alive_coach_2 = copy.copy(temp_list_pokemons_from_coach_2)
 
     # Choose first pokemons
- 
+    print("Entrenador 1 elija su primer pokemon")
+    temp_pokemon_coach_1 = get_pokemon_in_a_list_of_pokemons("Introduzca el id del pokemon: ", list_pokemons_alive_coach_1)
+    print("Entrenador 2 elija su primer pokemon")
+    temp_pokemon_coach_2 = get_pokemon_in_a_list_of_pokemons("Introduzca el id del pokemon: ",list_pokemons_alive_coach_2)
+
 
     # Main loop.
 
