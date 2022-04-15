@@ -140,7 +140,7 @@ def get_pokemon_in_a_list_of_pokemons(coach_to_ask, list_of_pokemons):
             print("Por favor introduza un numero presente en la lista")
     #Salta la excepcion ya que no list_pokemons no es una lista
     else:
-        raise TypeError("list_pokemons should be a list")
+        raise TypeError("list_pokemons deberia ser una lista")
 
 
 
@@ -207,10 +207,14 @@ def main():
     print("Welcome to the Game.")
     print("Let's start to set the configuration of each game user. \n")
 
-    # Get configuration for Game User 1.
 
+    # Get configuration for Game User 1.
+    print ("Configuracion del jugador 1: \n")
+    game_user_1 = get_data_from_user("coach_1_pokemons.csv")
 
     # Get configuration for Game User 2.
+    print ("Configuracion del jugador 2: \n")
+    game_user_2 = get_data_from_user("coach_2_pokemons.csv")
 
 
     print("------------------------------------------------------------------")
