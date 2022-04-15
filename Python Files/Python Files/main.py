@@ -237,7 +237,23 @@ def main():
 
 
     # Main loop.
+    while(coach_is_undefeated(temp_list_pokemons_from_coach_1) and coach_is_undefeated(temp_list_pokemons_from_coach_2)):
 
+        if not temp_pokemon_coach_1.is_alive():
+            # Select a new pokemon
+            print("Entrenador 1 su pokemon: " + str(temp_pokemon_coach_1) + " ha sido derrotado. Por favor elija su nuevo pokemon para combatir")
+            list_pokemons_alive_coach_1.remove(temp_pokemon_coach_1)
+            temp_pokemon_coach_1 = get_pokemon_in_a_list_of_pokemons("Introduzca el id del pokemon", list_pokemons_alive_coach_1)
+        if not temp_pokemon_coach_2.is_alive():
+            # Select a new pokemon
+            print("Entrenador 2 su pokemon: " + str(temp_pokemon_coach_2) + " ha sido derrotado. Por favor elija su nuevo pokemon para combatir")
+            list_pokemons_alive_coach_2.remove(temp_pokemon_coach_2)
+            temp_pokemon_coach_2 = get_pokemon_in_a_list_of_pokemons("Introduzca el id del pokemon", list_pokemons_alive_coach_2)
+
+        print("pokemon from Game User 1 attacks.")
+        temp_pokemon_coach_1.fight_attack(temp_pokemon_coach_2)
+        print("pokemon from Game User 2 attacks.")
+        temp_pokemon_coach_2.fight_attack(temp_pokemon_coach_1)
 
 
     print("------------------------------------------------------------------")
