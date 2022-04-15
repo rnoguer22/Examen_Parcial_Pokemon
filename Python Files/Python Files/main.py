@@ -240,13 +240,13 @@ def main():
     while(coach_is_undefeated(temp_list_pokemons_from_coach_1) and coach_is_undefeated(temp_list_pokemons_from_coach_2)):
 
         if not temp_pokemon_coach_1.is_alive():
-            # Select a new pokemon
-            print("Entrenador 1 su pokemon: " + str(temp_pokemon_coach_1) + " ha sido derrotado. Por favor elija su nuevo pokemon para combatir")
+            # Seleccionamos un nuevo pokemon
+            print("Entrenador 1 su pokemon: " + str(temp_pokemon_coach_1) + " ha sido debilitado. Por favor elija su nuevo pokemon para combatir")
             list_pokemons_alive_coach_1.remove(temp_pokemon_coach_1)
             temp_pokemon_coach_1 = get_pokemon_in_a_list_of_pokemons("Introduzca el id del pokemon", list_pokemons_alive_coach_1)
         if not temp_pokemon_coach_2.is_alive():
-            # Select a new pokemon
-            print("Entrenador 2 su pokemon: " + str(temp_pokemon_coach_2) + " ha sido derrotado. Por favor elija su nuevo pokemon para combatir")
+            # Seleccona un nuevo pokemon
+            print("Entrenador 2 su pokemon: " + str(temp_pokemon_coach_2) + " ha sido debilitado. Por favor elija su nuevo pokemon para combatir")
             list_pokemons_alive_coach_2.remove(temp_pokemon_coach_2)
             temp_pokemon_coach_2 = get_pokemon_in_a_list_of_pokemons("Introduzca el id del pokemon", list_pokemons_alive_coach_2)
 
@@ -264,10 +264,16 @@ def main():
     print("------------------------------------------------------------------")
     print("Statistics")
     print("------------------------------------------------------------------")
-    print("Game User 1:")
 
+    print("Game User 1:")
+    #Mostramos por pantalla los pokemon no debilitados dl primer usuario
+    for temp_pokemon in temp_list_pokemons_from_coach_1:
+        print(temp_pokemon)
 
     print("Game User 2:")
+    #Mostramos por pantalla los pokemon no debilitados del segundo usuario
+    for temp_pokemon in temp_list_pokemons_from_coach_2:
+        print(temp_pokemon)
 
 
 
